@@ -188,9 +188,13 @@ iframe {
 
     <p>Expérience musicale immersive à travers les années</p>
 
-    <button onclick="startMusic()">
+<button onclick="toggleMusic()" id="music-btn">
+    ▶️ Musique
+</button>
+    
+  /*  <button onclick="startMusic()">
         🎵 Activer la musique
-    </button>
+    </button>*/
 
 </section>
 
@@ -302,7 +306,7 @@ iframe {
 
 <!-- JAVASCRIPT -->
 <script>
-
+    
 function openImage(src) {
     document.getElementById("lightbox").style.display = "flex";
     document.getElementById("lightbox-img").src = src;
@@ -324,6 +328,37 @@ function startMusic() {
     .catch((err) => {
         console.log("Erreur audio :", err);
     });
+}
+
+</script>
+
+    <script>
+
+let playing = false;
+
+function toggleMusic() {
+
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    if (playing) {
+
+        music.pause();
+
+        btn.innerHTML = "▶️ Musique";
+
+        playing = false;
+
+    } else {
+
+        music.volume = 0.4;
+
+        music.play();
+
+        btn.innerHTML = "⏸️ Pause";
+
+        playing = true;
+    }
 }
 
 </script>
