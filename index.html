@@ -328,24 +328,37 @@ function startMusic() {
 
 </script>
 
+    <script>
 
+let playing = false;
 
-<script>
-
-window.addEventListener("mousemove", startOnce);
-
-function startOnce() {
+function toggleMusic() {
 
     const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
 
-    music.volume = 0.4;
+    if (playing) {
 
-    music.play();
+        music.pause();
 
-    window.removeEventListener("mousemove", startOnce);
+        btn.innerHTML = "▶️ Musique";
+
+        playing = false;
+
+    } else {
+
+        music.volume = 0.4;
+
+        music.play();
+
+        btn.innerHTML = "⏸️ Pause";
+
+        playing = true;
+    }
 }
 
 </script>
+
     
 </body>
 </html>
