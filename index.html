@@ -359,5 +359,22 @@ function toggleMusic() {
 
 </script>
 
+<script>
+
+window.addEventListener("mousemove", startOnce);
+
+function startOnce() {
+
+    const music = document.getElementById("bg-music");
+
+    music.volume = 0.4;
+
+    music.play();
+
+    window.removeEventListener("mousemove", startOnce);
+}
+
+</script>
+    
 </body>
 </html>
